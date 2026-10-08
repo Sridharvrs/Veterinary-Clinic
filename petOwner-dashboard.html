@@ -13,12 +13,22 @@
 <!-- ============ SIDEBAR ============ -->
 <aside class="dash-sidebar" id="dashSidebar">
   <div class="sb-brand">
-    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span>
-    <span><span class="brand-name">Paws <span>&amp;</span> Claws</span><span class="brand-tag">Owner Portal</span></span>
+    
+    <span>
+        <a href="index.html" class="brand">
+            <img
+              src="images/logo.webp"
+              alt="Stackly Veterinary Clinic"
+              class="brand-logo"
+            >
+        </a>
+    </span>
+
+    <span class="brand-tag">Owner Portal</span>
   </div>
   <div class="sb-role">
     <div class="sb-role-ic">🐾</div>
-    <div><strong>Jane Smith</strong><span>Pet Owner</span></div>
+    <div><strong class="profileName">Jane Smith</strong><span>Pet Owner</span></div>
   </div>
   <nav class="sb-nav">
     <div class="sb-nav-item active" data-module="overview" data-title="Overview">
@@ -61,7 +71,7 @@
       <button class="tb-toggle" id="tbToggle" aria-label="Toggle sidebar"><span></span><span></span><span></span></button>
       <div>
         <div class="tb-title" id="tbTitle">Overview</div>
-        <div class="tb-greet">Welcome back, Jane! 👋</div>
+        <div class="tb-greet">Welcome back, <span class="profileName">Name</span>! 👋</div>
       </div>
     </div>
     <div class="tb-right">
@@ -78,7 +88,7 @@
       </button>
       <div class="tb-avatar">
         <img src="https://images.pexels.com/photos/6235017/pexels-photo-6235017.jpeg?auto=compress&cs=tinysrgb&h=80&w=80" alt="Jane">
-        <div><strong>Jane S.</strong><span>Pet Owner</span></div>
+        <div class="name"><strong class="profileName">Jane S.</strong><span>Pet Owner</span></div>
       </div>
     </div>
   </header>
@@ -101,7 +111,7 @@
       <div class="grid-2-1">
         <!-- upcoming appointments -->
         <div class="dash-card">
-          <div class="mod-section-title">Upcoming Appointments <a href="#" data-jump="appointments">View all →</a></div>
+          <div class="mod-section-title">Upcoming Appointments <a href="dashboardError.html" data-jump="appointments">View all →</a></div>
           <table class="dash-table">
             <thead><tr><th>Pet</th><th>Service</th><th>Date</th><th>Time</th><th>Status</th></tr></thead>
             <tbody>
@@ -163,7 +173,7 @@
               <div class="vax-item"><span>Bordetella</span><span class="pill pill-amber">Due Nov</span></div>
               <div class="vax-item"><span>Leptospirosis</span><span class="pill pill-success">Up to date</span></div>
             </div>
-            <div class="ppc-actions"><a href="#" class="btn btn-primary">View Full Profile</a><a href="#" class="btn btn-ghost">Edit</a></div>
+            <div class="ppc-actions"><a href="dashboardError.html" class="btn btn-primary">View Full Profile</a><a href="dashboardError.html" class="btn btn-ghost">Edit</a></div>
           </div>
         </div>
 
@@ -183,7 +193,7 @@
               <div class="vax-item"><span>FVRCP</span><span class="pill pill-success">Up to date</span></div>
               <div class="vax-item"><span>FeLV</span><span class="pill pill-success">Up to date</span></div>
             </div>
-            <div class="ppc-actions"><a href="#" class="btn btn-primary">View Full Profile</a><a href="#" class="btn btn-ghost">Edit</a></div>
+            <div class="ppc-actions"><a href="dashboardError.html" class="btn btn-primary">View Full Profile</a><a href="dashboardError.html" class="btn btn-ghost">Edit</a></div>
           </div>
         </div>
 
@@ -192,7 +202,7 @@
           <div class="pac-ic">＋</div>
           <h3>Add a New Pet</h3>
           <p>Register a new companion to start tracking their health.</p>
-          <button class="btn btn-coral" id="addPetBtn">Add Pet</button>
+          <button class="btn btn-coral" onclick="window.location.href = 'dashboardError.html'">Add Pet</button> <!-- id="addPetBtn" -->
         </div>
       </div>
 
@@ -207,7 +217,7 @@
             <div class="mf-row"><div class="field"><label>Breed</label><input type="text" placeholder="Golden Retriever"></div><div class="field"><label>Date of Birth</label><input type="date"></div></div>
             <div class="mf-row"><div class="field"><label>Sex *</label><select required><option value="">Select…</option><option>Male</option><option>Female</option></select></div><div class="field"><label>Weight (kg)</label><input type="number" step="0.1" placeholder="12.5"></div></div>
             <div class="field"><label>Notes</label><textarea rows="3" placeholder="Allergies, behaviour, anything we should know…"></textarea></div>
-            <button type="submit" class="btn btn-primary btn-block">Save Pet Profile</button>
+            <button type="submit" class="btn btn-primary btn-block" onclick="window.location.href = 'dashboardError.html'">Save Pet Profile</button>
             <div class="form-ok" id="addPetOk">✓ Pet added successfully!</div>
           </form>
         </div>
@@ -220,8 +230,8 @@
 
       <div class="ap-tabs" id="apTabs">
         <button class="ap-tab active" data-tab="upcoming">Upcoming (3)</button>
-        <button class="ap-tab" data-tab="past">Past Visits</button>
-        <button class="ap-tab" data-tab="book">Book New</button>
+        <button class="ap-tab" onclick="window.location.href = 'dashboardError.html'">Past Visits</button> <!-- data-tab="past" -->
+        <button class="ap-tab" onclick="window.location.href = 'dashboardError.html'">Book New</button> <!-- data-tab="book" -->
       </div>
 
       <div class="ap-content">
@@ -253,7 +263,7 @@
                 <div class="field"><label>Service Needed *</label><select required><option value="">Choose a service…</option><option>Wellness Exam</option><option>Vaccination</option><option>Dental Cleaning</option><option>Surgery Consult</option><option>Nutrition</option><option>Other</option></select></div>
                 <div class="mf-row"><div class="field"><label>Preferred Date *</label><input type="date" required></div><div class="field"><label>Preferred Time</label><select><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div></div>
                 <div class="field"><label>Notes</label><textarea rows="3" placeholder="Describe symptoms or concerns…"></textarea></div>
-                <button type="submit" class="btn btn-coral btn-block">Request Appointment</button>
+                <button type="submit" class="btn btn-coral btn-block" onclick="window.location.href = 'dashboardError.html'">Request Appointment</button>
                 <div class="form-ok" id="bookOk">✓ Request sent! We'll confirm within the hour.</div>
               </form>
             </div>

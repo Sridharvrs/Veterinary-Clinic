@@ -13,12 +13,21 @@
 <!-- ============ SIDEBAR ============ -->
 <aside class="dash-sidebar" id="dashSidebar">
   <div class="sb-brand">
-    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span>
-    <span><span class="brand-name">Paws <span>&amp;</span> Claws</span><span class="brand-tag">Staff Portal</span></span>
+    <span>
+        <a href="index.html" class="brand">
+            <img
+              src="images/logo.webp"
+              alt="Stackly Veterinary Clinic"
+              class="brand-logo"
+            >
+        </a>
+    </span>
+
+    <span class="brand-tag">Staff Portal</span>
   </div>
   <div class="sb-role">
     <div class="sb-role-ic">🩺</div>
-    <div><strong>Dr. Maya Hartley</strong><span>Chief Veterinarian</span></div>
+    <div><strong>Dr. <span class="profileName">Name</span> </strong><span>Chief Veterinarian</span></div>
   </div>
   <nav class="sb-nav">
     <div class="sb-nav-item active" data-module="overview" data-title="Clinic Overview">
@@ -77,7 +86,7 @@
       </button>
       <div class="tb-avatar">
         <img src="https://images.pexels.com/photos/6235231/pexels-photo-6235231.jpeg?auto=compress&cs=tinysrgb&h=80&w=80" alt="Dr. Maya">
-        <div><strong>Dr. Maya</strong><span>Chief Vet</span></div>
+        <div class="name"><strong>Dr. <span class="profileName">Name</span></strong><span>Chief Vet</span></div>
       </div>
     </div>
   </header>
@@ -98,7 +107,7 @@
       <div class="grid-2-1">
         <!-- today's appointments preview -->
         <div class="dash-card">
-          <div class="mod-section-title">Today's Appointments <a href="#" data-jump="schedule">Full schedule →</a></div>
+          <div class="mod-section-title">Today's Appointments <a href="dashboardError.html" data-jump="schedule">Full schedule →</a></div>
           <div class="today-ap-list">
             <div class="today-ap"><div class="ta-time">9:00</div><div class="ta-pet">🐕 Bruno</div><div class="ta-info"><strong>Annual Checkup</strong><span>Jane Smith</span></div><span class="pill pill-success">Done</span></div>
             <div class="today-ap"><div class="ta-time">10:30</div><div class="ta-pet">🐱 Whiskers</div><div class="ta-info"><strong>Vaccination</strong><span>Mark Lee</span></div><span class="pill pill-teal">In Room 2</span></div>
@@ -282,7 +291,7 @@
           </div>
           <div class="mrp-reply">
             <textarea placeholder="Type your reply…" rows="3"></textarea>
-            <button class="btn btn-primary">Send Reply</button>
+            <button class="btn btn-primary" d:\Stackly Projects\Food Delivery\customer-dashboard.html>Send Reply</button>
           </div>
         </div>
       </div>

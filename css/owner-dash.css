@@ -218,3 +218,18 @@
   .ap-card { flex-wrap: wrap; }
   .ppc-grid { grid-template-columns: 1fr; }
 }
+
+.brand-tag{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sb-brand{
+  display: flex;
+  flex-direction: column;
+}
+
+.name{
+    display: flex;
+    flex-direction: column;
+}

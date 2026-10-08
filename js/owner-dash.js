@@ -1,3 +1,19 @@
+const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+
+if (currentUser?.name) {
+  // Dynamic name
+  document.querySelectorAll(".profileName").forEach(element => {
+    element.textContent = currentUser.name;
+  });
+
+  // First letter for avatar
+  const firstLetter = currentUser.name.trim().charAt(0).toUpperCase();
+
+  document.querySelectorAll(".avatar").forEach(element => {
+    element.textContent = firstLetter;
+  });
+}
+
 /* PET OWNER DASHBOARD — module-specific interactions */
 document.addEventListener('DOMContentLoaded', () => {
   initDashboard('Pet Owner');
