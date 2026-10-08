@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff Dashboard — Stackly</title>
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/staff-dash.css">
+</head>
+<body class="dash-body">
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="dash-sidebar" id="dashSidebar">
+  <div class="sb-brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span>
+    <span><span class="brand-name">Paws <span>&amp;</span> Claws</span><span class="brand-tag">Staff Portal</span></span>
+  </div>
+  <div class="sb-role">
+    <div class="sb-role-ic">🩺</div>
+    <div><strong>Dr. Maya Hartley</strong><span>Chief Veterinarian</span></div>
+  </div>
+  <nav class="sb-nav">
+    <div class="sb-nav-item active" data-module="overview" data-title="Clinic Overview">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+      Overview
+    </div>
+    <div class="sb-nav-item" data-module="patients" data-title="Patient Management">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="4" cy="8" r="2"/><circle cx="7" cy="14" r="2"/><path d="M12 21s-5-3-5-7a3 3 0 0 1 5-2 3 3 0 0 1 5 2c0 4-5 7-5 7z"/></svg>
+      Patients <span class="badge">42</span>
+    </div>
+    <div class="sb-nav-item" data-module="schedule" data-title="Today's Schedule">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Schedule <span class="badge">8</span>
+    </div>
+    <div class="sb-nav-item" data-module="inventory" data-title="Inventory &amp; Supplies">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+      Inventory
+    </div>
+    <div class="sb-nav-item" data-module="messages" data-title="Messages">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Messages <span class="badge">5</span>
+    </div>
+    <div class="sb-nav-item" data-module="reports" data-title="Reports &amp; Analytics">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      Reports
+    </div>
+  </nav>
+  <button class="sb-logout" data-logout>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    Log Out
+  </button>
+</aside>
+<div class="sb-overlay" id="sbOverlay"></div>
+
+<!-- ============ MAIN ============ -->
+<div class="dash-main">
+  <header class="dash-topbar">
+    <div class="tb-left">
+      <button class="tb-toggle" id="tbToggle" aria-label="Toggle sidebar"><span></span><span></span><span></span></button>
+      <div>
+        <div class="tb-title" id="tbTitle">Clinic Overview</div>
+        <div class="tb-greet">Tuesday, Oct 7 · 8 appointments today</div>
+      </div>
+    </div>
+    <div class="tb-right">
+      <div class="tb-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search patients…">
+      </div>
+      <button class="tb-icon-btn" aria-label="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="dot"></span>
+      </button>
+      <button class="tb-logout" data-logout aria-label="Log out">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+      <div class="tb-avatar">
+        <img src="https://images.pexels.com/photos/6235231/pexels-photo-6235231.jpeg?auto=compress&cs=tinysrgb&h=80&w=80" alt="Dr. Maya">
+        <div><strong>Dr. Maya</strong><span>Chief Vet</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dash-content">
+
+    <!-- ====== OVERVIEW MODULE ====== -->
+    <section class="module active" id="mod-overview">
+      <div class="mod-head"><h2>Clinic Overview</h2><p>Real-time snapshot of today's clinic activity.</p></div>
+
+      <div class="stat-row">
+        <div class="stat-card teal"><div class="stat-ic">📅</div><div><div class="stat-val" data-count="8">0</div><div class="stat-lbl">Today's Appointments</div><div class="stat-trend up">↑ 2 vs yesterday</div></div></div>
+        <div class="stat-card coral"><div class="stat-ic">🐾</div><div><div class="stat-val" data-count="42">0</div><div class="stat-lbl">Active Patients</div><div class="stat-trend up">↑ 5 this week</div></div></div>
+        <div class="stat-card amber"><div class="stat-ic">⏳</div><div><div class="stat-val" data-count="3">0</div><div class="stat-lbl">In Waiting Room</div><div class="stat-trend down">↓ 1 vs avg</div></div></div>
+        <div class="stat-card success"><div class="stat-ic">💰</div><div><div class="stat-val">$<span data-count="2840">0</span></div><div class="stat-lbl">Revenue Today</div><div class="stat-trend up">↑ 12%</div></div></div>
+      </div>
+
+      <div class="grid-2-1">
+        <!-- today's appointments preview -->
+        <div class="dash-card">
+          <div class="mod-section-title">Today's Appointments <a href="#" data-jump="schedule">Full schedule →</a></div>
+          <div class="today-ap-list">
+            <div class="today-ap"><div class="ta-time">9:00</div><div class="ta-pet">🐕 Bruno</div><div class="ta-info"><strong>Annual Checkup</strong><span>Jane Smith</span></div><span class="pill pill-success">Done</span></div>
+            <div class="today-ap"><div class="ta-time">10:30</div><div class="ta-pet">🐱 Whiskers</div><div class="ta-info"><strong>Vaccination</strong><span>Mark Lee</span></div><span class="pill pill-teal">In Room 2</span></div>
+            <div class="today-ap"><div class="ta-time">11:15</div><div class="ta-pet">🐰 Cinnamon</div><div class="ta-info"><strong>Dental Check</strong><span>Priya R.</span></div><span class="pill pill-amber">Waiting</span></div>
+            <div class="today-ap"><div class="ta-time">1:00</div><div class="ta-pet">🐕 Max</div><div class="ta-info"><strong>Limp Consult</strong><span>Tom A.</span></div><span class="pill pill-neutral">Upcoming</span></div>
+            <div class="today-ap"><div class="ta-time">2:30</div><div class="ta-pet">🐱 Luna</div><div class="ta-info"><strong>Spay Follow-up</strong><span>James K.</span></div><span class="pill pill-neutral">Upcoming</span></div>
+            <div class="today-ap"><div class="ta-time">4:00</div><div class="ta-pet">🦜 Kiwi</div><div class="ta-info"><strong>Wing Clip</strong><span>Dana M.</span></div><span class="pill pill-neutral">Upcoming</span></div>
+          </div>
+        </div>
+        <!-- waiting room + alerts -->
+        <div class="dash-card">
+          <div class="mod-section-title">Waiting Room</div>
+          <div class="wr-list">
+            <div class="wr-item"><span class="wr-ic">🐱</span><div><strong>Whiskers</strong><span>Owner: Mark Lee · 15 min</span></div><span class="pill pill-teal">Room 2</span></div>
+            <div class="wr-item"><span class="wr-ic">🐰</span><div><strong>Cinnamon</strong><span>Owner: Priya R. · 8 min</span></div><span class="pill pill-amber">Waiting</span></div>
+            <div class="wr-item"><span class="wr-ic">🐕</span><div><strong>Max</strong><span>Owner: Tom A. · 3 min</span></div><span class="pill pill-amber">Checking in</span></div>
+          </div>
+          <div class="ps-divider" style="margin:18px 0"></div>
+          <div class="mod-section-title" style="margin-bottom:12px">Critical Alerts</div>
+          <div class="alert-item critical"><span>🚨</span><div><strong>Surgery room 1 needs sterilisation</strong><span>Before 1:00 PM procedure</span></div></div>
+          <div class="alert-item warning"><span>⚠️</span><div><strong>Vaccine stock low: Bordetella</strong><span>3 doses remaining</span></div></div>
+        </div>
+      </div>
+
+      <!-- mini chart -->
+      <div class="dash-card" style="margin-top:20px">
+        <div class="mod-section-title">Weekly Patient Flow</div>
+        <div class="week-chart">
+          <div class="wc-bar"><div class="wc-fill teal" style="height:55%"><span>14</span></div><small>Mon</small></div>
+          <div class="wc-bar"><div class="wc-fill teal" style="height:70%"><span>18</span></div><small>Tue</small></div>
+          <div class="wc-bar"><div class="wc-fill teal" style="height:45%"><span>11</span></div><small>Wed</small></div>
+          <div class="wc-bar"><div class="wc-fill coral" style="height:90%"><span>23</span></div><small>Thu</small></div>
+          <div class="wc-bar"><div class="wc-fill teal" style="height:60%"><span>15</span></div><small>Fri</small></div>
+          <div class="wc-bar"><div class="wc-fill teal" style="height:35%"><span>9</span></div><small>Sat</small></div>
+          <div class="wc-bar"><div class="wc-fill teal" style="height:20%"><span>5</span></div><small>Sun</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== PATIENTS MODULE ====== -->
+    <section class="module" id="mod-patients">
+      <div class="mod-head"><h2>Patient Management</h2><p>All registered pets across the clinic. Search, filter, and view records.</p></div>
+
+      <!-- filters -->
+      <div class="pat-filters">
+        <div class="pf-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="patSearch" placeholder="Search by pet or owner name…">
+        </div>
+        <div class="pf-chips" id="pfChips">
+          <button class="pf-chip active" data-filter="all">All</button>
+          <button class="pf-chip" data-filter="dog">🐕 Dogs</button>
+          <button class="pf-chip" data-filter="cat">🐱 Cats</button>
+          <button class="pf-chip" data-filter="other">🐾 Other</button>
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <table class="dash-table pat-table">
+          <thead><tr><th>Pet</th><th>Owner</th><th>Species</th><th>Breed</th><th>Age</th><th>Last Visit</th><th>Status</th><th></th></tr></thead>
+          <tbody id="patBody">
+            <tr data-type="dog"><td class="pat-name">🐕 Bruno</td><td>Jane Smith</td><td>Dog</td><td>Labrador</td><td>5 yrs</td><td>Sep 14</td><td><span class="pill pill-success">Healthy</span></td><td><button class="pat-view">View</button></td></tr>
+            <tr data-type="cat"><td class="pat-name">🐱 Misty</td><td>Jane Smith</td><td>Cat</td><td>Tabby</td><td>3 yrs</td><td>Aug 22</td><td><span class="pill pill-amber">Monitor</span></td><td><button class="pat-view">View</button></td></tr>
+            <tr data-type="cat"><td class="pat-name">🐱 Whiskers</td><td>Mark Lee</td><td>Cat</td><td>Siamese</td><td>2 yrs</td><td>Oct 07</td><td><span class="pill pill-success">Healthy</span></td><td><button class="pat-view">View</button></td></tr>
+            <tr data-type="dog"><td class="pat-name">🐕 Max</td><td>Tom Alvarez</td><td>Dog</td><td>Beagle</td><td>4 yrs</td><td>Oct 07</td><td><span class="pill pill-coral">Limping</span></td><td><button class="pat-view">View</button></td></tr>
+            <tr data-type="other"><td class="pat-name">🐰 Cinnamon</td><td>Priya R.</td><td>Rabbit</td><td>Holland Lop</td><td>2 yrs</td><td>Oct 07</td><td><span class="pill pill-success">Healthy</span></td><td><button class="pat-view">View</button></td></tr>
+            <tr data-type="cat"><td class="pat-name">🐱 Luna</td><td>James K.</td><td>Cat</td><td>Mixed</td><td>1 yr</td><td>Oct 01</td><td><span class="pill pill-teal">Recovering</span></td><td><button class="pat-view">View</button></td></tr>
+            <tr data-type="dog"><td class="pat-name">🐕 Cooper</td><td>Raj P.</td><td>Dog</td><td>Border Collie</td><td>6 yrs</td><td>Sep 28</td><td><span class="pill pill-success">Healthy</span></td><td><button class="pat-view">View</button></td></tr>
+            <tr data-type="other"><td class="pat-name">🦜 Kiwi</td><td>Dana M.</td><td>Bird</td><td>Amazon</td><td>3 yrs</td><td>Sep 20</td><td><span class="pill pill-success">Healthy</span></td><td><button class="pat-view">View</button></td></tr>
+            <tr data-type="dog"><td class="pat-name">🐕 Rocky</td><td>Sara N.</td><td>Dog</td><td>Bulldog</td><td>7 yrs</td><td>Sep 18</td><td><span class="pill pill-amber">Arthritis</span></td><td><button class="pat-view">View</button></td></tr>
+            <tr data-type="cat"><td class="pat-name">🐱 Snowball</td><td>Olivia B.</td><td>Cat</td><td>Persian</td><td>5 yrs</td><td>Sep 15</td><td><span class="pill pill-success">Healthy</span></td><td><button class="pat-view">View</button></td></tr>
+          </tbody>
+        </table>
+        <div class="empty-state" id="patEmpty" style="display:none"><div class="es-ic">🔍</div><p>No patients match your search.</p></div>
+      </div>
+    </section>
+
+    <!-- ====== SCHEDULE MODULE ====== -->
+    <section class="module" id="mod-schedule">
+      <div class="mod-head"><h2>Today's Schedule</h2><p>Full appointment timeline across all examination rooms.</p></div>
+
+      <div class="schedule-tabs" id="schedTabs">
+        <button class="sched-tab active" data-day="today">Today</button>
+        <button class="sched-tab" data-day="tomorrow">Tomorrow</button>
+        <button class="sched-tab" data-day="week">This Week</button>
+      </div>
+
+      <div class="sched-timeline" id="schedToday">
+        <div class="sched-slot done"><div class="ss-time">9:00 — 9:45</div><div class="ss-body"><div class="ss-pet">🐕 Bruno · Labrador</div><strong>Annual Wellness Exam</strong><span>Owner: Jane S. · Room 1 · Dr. Hartley</span></div><span class="pill pill-success">Completed</span></div>
+        <div class="sched-slot current"><div class="ss-time">10:30 — 11:00</div><div class="ss-body"><div class="ss-pet">🐱 Whiskers · Siamese</div><strong>Vaccination Booster</strong><span>Owner: Mark L. · Room 2 · Dr. Chen</span></div><span class="pill pill-teal">In Progress</span></div>
+        <div class="sched-slot"><div class="ss-time">11:15 — 12:00</div><div class="ss-body"><div class="ss-pet">🐰 Cinnamon · Holland Lop</div><strong>Dental Check</strong><span>Owner: Priya R. · Room 1 · Dr. Chen</span></div><span class="pill pill-amber">Next Up</span></div>
+        <div class="sched-slot"><div class="ss-time">1:00 — 1:30</div><div class="ss-body"><div class="ss-pet">🐕 Max · Beagle</div><strong>Limp Consultation</strong><span>Owner: Tom A. · Room 1 · Dr. Hartley</span></div><span class="pill pill-neutral">Upcoming</span></div>
+        <div class="sched-slot break"><div class="ss-time">1:30 — 2:15</div><div class="ss-body"><div class="ss-pet">☕ Lunch Break</div><strong>Staff rest period</strong><span>All rooms</span></div><span class="pill pill-neutral">Break</span></div>
+        <div class="sched-slot"><div class="ss-time">2:30 — 3:15</div><div class="ss-body"><div class="ss-pet">🐱 Luna · Mixed</div><strong>Spay Follow-up</strong><span>Owner: James K. · Room 2 · Dr. Hartley</span></div><span class="pill pill-neutral">Upcoming</span></div>
+        <div class="sched-slot"><div class="ss-time">4:00 — 4:30</div><div class="ss-body"><div class="ss-pet">🦜 Kiwi · Amazon</div><strong>Wing Clipping</strong><span>Owner: Dana M. · Room 1 · Dr. Bello</span></div><span class="pill pill-neutral">Upcoming</span></div>
+        <div class="sched-slot"><div class="ss-time">5:00 — 5:45</div><div class="ss-body"><div class="ss-pet">🐕 Rocky · Bulldog</div><strong>Arthritis Follow-up</strong><span>Owner: Sara N. · Room 2 · Dr. Hartley</span></div><span class="pill pill-neutral">Upcoming</span></div>
+      </div>
+
+      <div class="sched-timeline" id="schedTomorrow" style="display:none">
+        <div class="sched-slot"><div class="ss-time">9:30 — 10:15</div><div class="ss-body"><div class="ss-pet">🐕 Cooper · Border Collie</div><strong>Annual Exam</strong><span>Owner: Raj P. · Room 1</span></div><span class="pill pill-neutral">Upcoming</span></div>
+        <div class="sched-slot"><div class="ss-time">11:00 — 12:00</div><div class="ss-body"><div class="ss-pet">🐱 Snowball · Persian</div><strong>Dental Cleaning</strong><span>Owner: Olivia B. · Room 2</span></div><span class="pill pill-neutral">Upcoming</span></div>
+        <div class="sched-slot"><div class="ss-time">2:00 — 3:00</div><div class="ss-body"><div class="ss-pet">🐕 Bruno · Labrador</div><strong>X-Ray Consult</strong><span>Owner: Jane S. · Room 1</span></div><span class="pill pill-neutral">Upcoming</span></div>
+      </div>
+
+      <div class="sched-timeline" id="schedWeek" style="display:none">
+        <div class="week-sched-grid">
+          <div class="wsd-col"><h4>Wed</h4><div class="wsd-item">9:00 · Misty · Vacc</div><div class="wsd-item">11:00 · Max · Follow</div><div class="wsd-item">3:00 · Rocky · Meds</div></div>
+          <div class="wsd-col"><h4>Thu</h4><div class="wsd-item">8:30 · Cooper · Surg</div><div class="wsd-item">10:00 · Luna · Check</div><div class="wsd-item">1:00 · Kiwi · Trim</div><div class="wsd-item">4:00 · Max · X-Ray</div></div>
+          <div class="wsd-col"><h4>Fri</h4><div class="wsd-item">9:00 · Snowball · Dent</div><div class="wsd-item">11:30 · Bruno · Clean</div><div class="wsd-item">2:30 · Whiskers · Vac</div></div>
+          <div class="wsd-col"><h4>Sat</h4><div class="wsd-item">10:00 · Cinnamon · Check</div><div class="wsd-item">1:00 · Rocky · Follow</div></div>
+          <div class="wsd-col"><h4>Sun</h4><div class="wsd-item ws-em">Emergency only</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== INVENTORY MODULE ====== -->
+    <section class="module" id="mod-inventory">
+      <div class="mod-head"><h2>Inventory &amp; Supplies</h2><p>Track medications, vaccines, and clinic supplies in real time.</p></div>
+
+      <div class="stat-row" style="grid-template-columns:repeat(4,1fr)">
+        <div class="stat-card success"><div class="stat-ic">✓</div><div><div class="stat-val" data-count="124">0</div><div class="stat-lbl">Items In Stock</div></div></div>
+        <div class="stat-card coral"><div class="stat-ic">⚠️</div><div><div class="stat-val" data-count="5">0</div><div class="stat-lbl">Low Stock</div></div></div>
+        <div class="stat-card amber"><div class="stat-ic">📦</div><div><div class="stat-val" data-count="3">0</div><div class="stat-lbl">On Order</div></div></div>
+        <div class="stat-card teal"><div class="stat-ic">💸</div><div><div class="stat-val">$<span data-count="4200">0</span></div><div class="stat-lbl">Stock Value</div></div></div>
+      </div>
+
+      <div class="dash-card">
+        <div class="mod-section-title">Medication &amp; Vaccine Stock</div>
+        <table class="dash-table">
+          <thead><tr><th>Item</th><th>Category</th><th>In Stock</th><th>Reorder Level</th><th>Status</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Rabies Vaccine</td><td>Vaccine</td><td>28 vials</td><td>15</td><td><span class="pill pill-success">OK</span></td><td><button class="inv-order">Order</button></td></tr>
+            <tr><td>DHPP Vaccine</td><td>Vaccine</td><td>12 vials</td><td>15</td><td><span class="pill pill-amber">Low</span></td><td><button class="inv-order">Reorder</button></td></tr>
+            <tr><td>Bordetella Vaccine</td><td>Vaccine</td><td>3 vials</td><td>10</td><td><span class="pill pill-coral">Critical</span></td><td><button class="inv-order urgent">Urgent</button></td></tr>
+            <tr><td>Amoxicillin 50mg</td><td>Medication</td><td>45 tabs</td><td>30</td><td><span class="pill pill-success">OK</span></td><td><button class="inv-order">Order</button></td></tr>
+            <tr><td>Meloxicam</td><td>Medication</td><td>8 tabs</td><td>20</td><td><span class="pill pill-amber">Low</span></td><td><button class="inv-order">Reorder</button></td></tr>
+            <tr><td>Flea/Tick Treatment</td><td>Medication</td><td>32 doses</td><td>20</td><td><span class="pill pill-success">OK</span></td><td><button class="inv-order">Order</button></td></tr>
+            <tr><td>Surgical Gloves (M)</td><td>Supply</td><td>6 boxes</td><td>10</td><td><span class="pill pill-amber">Low</span></td><td><button class="inv-order">Reorder</button></td></tr>
+            <tr><td>Examination Gloves</td><td>Supply</td><td>40 boxes</td><td>15</td><td><span class="pill pill-success">OK</span></td><td><button class="inv-order">Order</button></td></tr>
+            <tr><td>Suture Pack 4-0</td><td>Supply</td><td>2 packs</td><td>8</td><td><span class="pill pill-coral">Critical</span></td><td><button class="inv-order urgent">Urgent</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2" style="margin-top:20px">
+        <div class="dash-card">
+          <div class="mod-section-title">Pending Orders</div>
+          <div class="order-item"><div><strong>PO-2026-014</strong><span>Bordetella × 25 vials · MedSupply Co.</span></div><span class="pill pill-amber">Shipped</span></div>
+          <div class="order-item"><div><strong>PO-2026-013</strong><span>Suture packs × 20 · VetParts</span></div><span class="pill pill-teal">Processing</span></div>
+          <div class="order-item"><div><strong>PO-2026-012</strong><span>Meloxicam × 50 tabs · PharmaPet</span></div><span class="pill pill-teal">Processing</span></div>
+        </div>
+        <div class="dash-card">
+          <div class="mod-section-title">Stock Value by Category</div>
+          <div class="spend-bar"><div class="sb-label"><span>💉 Vaccines</span><strong>$1,800</strong></div><div class="progress"><div class="progress-fill teal" data-width="80%"></div></div></div>
+          <div class="spend-bar"><div class="sb-label"><span>💊 Medications</span><strong>$1,400</strong></div><div class="progress"><div class="progress-fill coral" data-width="60%"></div></div></div>
+          <div class="spend-bar"><div class="sb-label"><span>🧤 Supplies</span><strong>$700</strong></div><div class="progress"><div class="progress-fill amber" data-width="30%"></div></div></div>
+          <div class="spend-bar"><div class="sb-label"><span>🩹 Surgical</span><strong>$300</strong></div><div class="progress"><div class="progress-fill teal" data-width="15%"></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== MESSAGES MODULE ====== -->
+    <section class="module" id="mod-messages">
+      <div class="mod-head"><h2>Messages</h2><p>Communications from pet owners and clinic staff.</p></div>
+
+      <div class="msg-layout">
+        <div class="msg-list-panel">
+          <div class="mlp-head"><h4>Inbox <span class="badge">5</span></h4></div>
+          <div class="msg-item unread" data-msg="1"><div class="msg-avatar">👤</div><div class="msg-prev"><strong>Jane Smith</strong><span>Re: Bruno's dental prep</span><small>10 min ago</small></div><span class="msg-dot"></span></div>
+          <div class="msg-item unread" data-msg="2"><div class="msg-avatar">👤</div><div class="msg-prev"><strong>Mark Lee</strong><span>Whiskers won't eat after vaccine</span><small>1 hr ago</small></div><span class="msg-dot"></span></div>
+          <div class="msg-item unread" data-msg="3"><div class="msg-avatar">🩺</div><div class="msg-prev"><strong>Dr. Chen</strong><span>Need Room 2 at 11</span><small>2 hrs ago</small></div><span class="msg-dot"></span></div>
+          <div class="msg-item" data-msg="4"><div class="msg-avatar">👤</div><div class="msg-prev"><strong>Priya R.</strong><span>Thank you for Cinnamon's care!</span><small>5 hrs ago</small></div></div>
+          <div class="msg-item" data-msg="5"><div class="msg-avatar">👤</div><div class="msg-prev"><strong>James K.</strong><span>Luna's incision looks red</span><small>Yesterday</small></div></div>
+          <div class="msg-item" data-msg="6"><div class="msg-avatar">🩺</div><div class="msg-prev"><strong>Dr. Fischer</strong><span>Emergency shift swap request</span><small>Yesterday</small></div></div>
+        </div>
+        <div class="msg-read-panel" id="msgRead">
+          <div class="mrp-head"><div><strong id="mrpFrom">Jane Smith</strong><span id="mrpTime">10 min ago</span></div><button class="mrp-close" id="mrpClose">&times;</button></div>
+          <h4 id="mrpSubject">Re: Bruno's dental prep</h4>
+          <div class="mrp-body" id="mrpBody">
+            <p>Hi Dr. Maya,</p><p>Just confirming — should I fast Bruno from 8pm the night before his dental on Nov 3? He's usually very food-motivated so I want to make sure I get the timing right!</p><p>Also, can he have water in the morning?</p><p>Thanks so much,<br>Jane &amp; Bruno 🐕</p>
+          </div>
+          <div class="mrp-reply">
+            <textarea placeholder="Type your reply…" rows="3"></textarea>
+            <button class="btn btn-primary">Send Reply</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== REPORTS MODULE ====== -->
+    <section class="module" id="mod-reports">
+      <div class="mod-head"><h2>Reports &amp; Analytics</h2><p>Clinic performance metrics and trends.</p></div>
+
+      <div class="stat-row">
+        <div class="stat-card teal"><div class="stat-ic">📈</div><div><div class="stat-val" data-count="142">0</div><div class="stat-lbl">Visits This Month</div><div class="stat-trend up">↑ 8%</div></div></div>
+        <div class="stat-card success"><div class="stat-ic">💰</div><div><div class="stat-val">$<span data-count="38200">0</span></div><div class="stat-lbl">Revenue This Month</div><div class="stat-trend up">↑ 12%</div></div></div>
+        <div class="stat-card coral"><div class="stat-ic">⭐</div><div><div class="stat-val">4.9</div><div class="stat-lbl">Avg. Rating</div><div class="stat-trend up">↑ 0.2</div></div></div>
+        <div class="stat-card amber"><div class="stat-ic">🐾</div><div><div class="stat-val" data-count="38">0</div><div class="stat-lbl">New Patients</div><div class="stat-trend up">↑ 15%</div></div></div>
+      </div>
+
+      <div class="grid-2" style="margin-bottom:20px">
+        <div class="dash-card">
+          <div class="mod-section-title">Revenue (Last 6 Months)</div>
+          <div class="report-chart">
+            <div class="rc-bar"><div class="rc-fill teal" style="height:45%"><span>$22k</span></div><small>May</small></div>
+            <div class="rc-bar"><div class="rc-fill teal" style="height:55%"><span>$27k</span></div><small>Jun</small></div>
+            <div class="rc-bar"><div class="rc-fill teal" style="height:50%"><span>$25k</span></div><small>Jul</small></div>
+            <div class="rc-bar"><div class="rc-fill teal" style="height:65%"><span>$32k</span></div><small>Aug</small></div>
+            <div class="rc-bar"><div class="rc-fill teal" style="height:60%"><span>$30k</span></div><small>Sep</small></div>
+            <div class="rc-bar"><div class="rc-fill coral" style="height:78%"><span>$38k</span></div><small>Oct</small></div>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="mod-section-title">Service Breakdown</div>
+          <div class="svc-breakdown">
+            <div class="sb-item"><div class="sb-info"><span>🩺 Wellness Exams</span><strong>38%</strong></div><div class="progress"><div class="progress-fill teal" data-width="38%"></div></div></div>
+            <div class="sb-item"><div class="sb-info"><span>💉 Vaccinations</span><strong>25%</strong></div><div class="progress"><div class="progress-fill coral" data-width="25%"></div></div></div>
+            <div class="sb-item"><div class="sb-info"><span>🏥 Surgery</span><strong>18%</strong></div><div class="progress"><div class="progress-fill amber" data-width="18%"></div></div></div>
+            <div class="sb-item"><div class="sb-info"><span>🦷 Dental</span><strong>12%</strong></div><div class="progress"><div class="progress-fill teal" data-width="12%"></div></div></div>
+            <div class="sb-item"><div class="sb-info"><span>💊 Other</span><strong>7%</strong></div><div class="progress"><div class="progress-fill coral" data-width="7%"></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <div class="mod-section-title">Top Performing Vets</div>
+        <table class="dash-table">
+          <thead><tr><th>Veterinarian</th><th>Patients Seen</th><th>Satisfaction</th><th>Revenue</th><th>Performance</th></tr></thead>
+          <tbody>
+            <tr><td>Dr. Maya Hartley</td><td>48</td><td>4.9 ★</td><td>$14,200</td><td><div class="progress" style="width:120px"><div class="progress-fill teal" data-width="95%"></div></div></td></tr>
+            <tr><td>Dr. Liam Chen</td><td>39</td><td>4.8 ★</td><td>$10,800</td><td><div class="progress" style="width:120px"><div class="progress-fill teal" data-width="78%"></div></div></td></tr>
+            <tr><td>Dr. Noah Fischer</td><td>31</td><td>4.9 ★</td><td>$8,400</td><td><div class="progress" style="width:120px"><div class="progress-fill coral" data-width="65%"></div></div></td></tr>
+            <tr><td>Dr. Aisha Bello</td><td>24</td><td>5.0 ★</td><td>$4,800</td><td><div class="progress" style="width:120px"><div class="progress-fill amber" data-width="48%"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ============ LOGOUT MODAL ============ -->
+<div class="logout-modal" id="logoutModal">
+  <div class="logout-box">
+    <div class="lb-ic">🩺</div>
+    <h3>End your shift?</h3>
+    <p>You'll need to sign back in to access the staff portal. Any unsaved notes will be lost.</p>
+    <div class="lb-btns">
+      <button class="btn btn-outline" id="logoutCancel">Stay</button>
+      <button class="btn btn-coral" id="logoutConfirm">Log Out</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/dashboard.js"></script>
+<script src="js/staff-dash.js"></script>
+</body>
+</html>

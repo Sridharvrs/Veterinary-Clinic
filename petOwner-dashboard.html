@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Owner Dashboard — Stackly</title>
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/owner-dash.css">
+</head>
+<body class="dash-body">
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="dash-sidebar" id="dashSidebar">
+  <div class="sb-brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span>
+    <span><span class="brand-name">Paws <span>&amp;</span> Claws</span><span class="brand-tag">Owner Portal</span></span>
+  </div>
+  <div class="sb-role">
+    <div class="sb-role-ic">🐾</div>
+    <div><strong>Jane Smith</strong><span>Pet Owner</span></div>
+  </div>
+  <nav class="sb-nav">
+    <div class="sb-nav-item active" data-module="overview" data-title="Overview">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Overview
+    </div>
+    <div class="sb-nav-item" data-module="pets" data-title="My Pets">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="4" cy="8" r="2"/><circle cx="7" cy="14" r="2"/><path d="M12 21s-5-3-5-7a3 3 0 0 1 5-2 3 3 0 0 1 5 2c0 4-5 7-5 7z"/></svg>
+      My Pets <span class="badge">2</span>
+    </div>
+    <div class="sb-nav-item" data-module="appointments" data-title="Appointments">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Appointments <span class="badge">3</span>
+    </div>
+    <div class="sb-nav-item" data-module="records" data-title="Medical Records">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+      Medical Records
+    </div>
+    <div class="sb-nav-item" data-module="prescriptions" data-title="Prescriptions">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.5 20.5 3.5 13.5a3.5 3.5 0 0 1 5-5l2 2 2-2a3.5 3.5 0 0 1 5 5l-7 7z"/><path d="M12 8v8M8 12h8"/></svg>
+      Prescriptions
+    </div>
+    <div class="sb-nav-item" data-module="invoices" data-title="Billing &amp; Invoices">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+      Billing &amp; Invoices
+    </div>
+  </nav>
+  <button class="sb-logout" data-logout>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    Log Out
+  </button>
+</aside>
+<div class="sb-overlay" id="sbOverlay"></div>
+
+<!-- ============ MAIN ============ -->
+<div class="dash-main">
+  <!-- STICKY TOPBAR -->
+  <header class="dash-topbar">
+    <div class="tb-left">
+      <button class="tb-toggle" id="tbToggle" aria-label="Toggle sidebar"><span></span><span></span><span></span></button>
+      <div>
+        <div class="tb-title" id="tbTitle">Overview</div>
+        <div class="tb-greet">Welcome back, Jane! 👋</div>
+      </div>
+    </div>
+    <div class="tb-right">
+      <div class="tb-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search records…">
+      </div>
+      <button class="tb-icon-btn" aria-label="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="dot"></span>
+      </button>
+      <button class="tb-logout" data-logout aria-label="Log out">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+      <div class="tb-avatar">
+        <img src="https://images.pexels.com/photos/6235017/pexels-photo-6235017.jpeg?auto=compress&cs=tinysrgb&h=80&w=80" alt="Jane">
+        <div><strong>Jane S.</strong><span>Pet Owner</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="dash-content">
+
+    <!-- ====== OVERVIEW MODULE ====== -->
+    <section class="module active" id="mod-overview">
+      <div class="mod-head"><h2>Dashboard Overview</h2><p>A quick look at your pets' health and upcoming visits.</p></div>
+
+      <!-- stat cards -->
+      <div class="stat-row">
+        <div class="stat-card teal"><div class="stat-ic">🐾</div><div><div class="stat-val" data-count="2">0</div><div class="stat-lbl">Registered Pets</div></div></div>
+        <div class="stat-card coral"><div class="stat-ic">📅</div><div><div class="stat-val" data-count="3">0</div><div class="stat-lbl">Upcoming Visits</div></div></div>
+        <div class="stat-card amber"><div class="stat-ic">💊</div><div><div class="stat-val" data-count="1">0</div><div class="stat-lbl">Active Rx</div></div></div>
+        <div class="stat-card success"><div class="stat-ic">✓</div><div><div class="stat-val" data-count="14">0</div><div class="stat-lbl">Visits Completed</div></div></div>
+      </div>
+
+      <div class="grid-2-1">
+        <!-- upcoming appointments -->
+        <div class="dash-card">
+          <div class="mod-section-title">Upcoming Appointments <a href="#" data-jump="appointments">View all →</a></div>
+          <table class="dash-table">
+            <thead><tr><th>Pet</th><th>Service</th><th>Date</th><th>Time</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Bruno 🐕</td><td>Annual Checkup</td><td>Oct 12</td><td>10:30 AM</td><td><span class="pill pill-teal">Confirmed</span></td></tr>
+              <tr><td>Misty 🐱</td><td>Vaccination Booster</td><td>Oct 18</td><td>2:00 PM</td><td><span class="pill pill-amber">Pending</span></td></tr>
+              <tr><td>Bruno 🐕</td><td>Dental Cleaning</td><td>Nov 03</td><td>9:00 AM</td><td><span class="pill pill-teal">Confirmed</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- pet health snapshot -->
+        <div class="dash-card">
+          <div class="mod-section-title">Health Snapshot</div>
+          <div class="pet-snap">
+            <div class="ps-pet"><div class="ps-avatar">🐕</div><div><strong>Bruno</strong><span>Labrador · 5 yrs</span></div></div>
+            <div class="ps-row"><span>Vaccinations</span><div class="progress"><div class="progress-fill teal" data-width="90%"></div></div><em>90%</em></div>
+            <div class="ps-row"><span>Dental</span><div class="progress"><div class="progress-fill amber" data-width="65%"></div></div><em>65%</em></div>
+            <div class="ps-row"><span>Weight</span><span class="pill pill-success">Healthy</span></div>
+          </div>
+          <div class="ps-divider"></div>
+          <div class="pet-snap">
+            <div class="ps-pet"><div class="ps-avatar">🐱</div><div><strong>Misty</strong><span>Tabby · 3 yrs</span></div></div>
+            <div class="ps-row"><span>Vaccinations</span><div class="progress"><div class="progress-fill teal" data-width="75%"></div></div><em>75%</em></div>
+            <div class="ps-row"><span>Dental</span><div class="progress"><div class="progress-fill coral" data-width="80%"></div></div><em>80%</em></div>
+            <div class="ps-row"><span>Weight</span><span class="pill pill-amber">Monitor</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- reminders -->
+      <div class="dash-card" style="margin-top:20px">
+        <div class="mod-section-title">Reminders &amp; Alerts</div>
+        <div class="reminder-list">
+          <div class="reminder"><span class="rm-ic coral">💉</span><div><strong>Misty's booster vaccine due in 11 days</strong><span>Book before Oct 18 to stay on schedule</span></div><a href="#" class="pill pill-coral">Book Now</a></div>
+          <div class="reminder"><span class="rm-ic amber">🦷</span><div><strong>Bruno's dental cleaning on Nov 3</strong><span>Fast Bruno from 8pm the night before</span></div><span class="pill pill-amber">Scheduled</span></div>
+          <div class="reminder"><span class="rm-ic teal">💊</span><div><strong>Misty's flea treatment refill</strong><span>2 doses remaining — reorder soon</span></div><a href="#" class="pill pill-teal">Reorder</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== MY PETS MODULE ====== -->
+    <section class="module" id="mod-pets">
+      <div class="mod-head"><h2>My Pets</h2><p>Manage profiles, view health details, and add new companions.</p></div>
+
+      <div class="pet-cards">
+        <div class="pet-profile-card">
+          <div class="ppc-banner"><img src="https://images.pexels.com/photos/33749204/pexels-photo-33749204.jpeg?auto=compress&cs=tinysrgb&h=300&w=600" alt="Bruno"></div>
+          <div class="ppc-body">
+            <div class="ppc-head"><div><h3>Bruno</h3><span>Labrador Retriever · Male · 5 years</span></div><span class="pill pill-success">Healthy</span></div>
+            <div class="ppc-grid">
+              <div><label>Weight</label><strong>28 kg</strong></div>
+              <div><label>Microchip</label><strong>985112…</strong></div>
+              <div><label>Diet</label><strong>Grain-free</strong></div>
+              <div><label>Last Visit</label><strong>Sep 14</strong></div>
+            </div>
+            <div class="ppc-vax">
+              <h4>Vaccination Status</h4>
+              <div class="vax-item"><span>Rabies</span><span class="pill pill-success">Up to date</span></div>
+              <div class="vax-item"><span>DHPP</span><span class="pill pill-success">Up to date</span></div>
+              <div class="vax-item"><span>Bordetella</span><span class="pill pill-amber">Due Nov</span></div>
+              <div class="vax-item"><span>Leptospirosis</span><span class="pill pill-success">Up to date</span></div>
+            </div>
+            <div class="ppc-actions"><a href="#" class="btn btn-primary">View Full Profile</a><a href="#" class="btn btn-ghost">Edit</a></div>
+          </div>
+        </div>
+
+        <div class="pet-profile-card">
+          <div class="ppc-banner"><img src="https://images.pexels.com/photos/6130971/pexels-photo-6130971.jpeg?auto=compress&cs=tinysrgb&h=300&w=600" alt="Misty"></div>
+          <div class="ppc-body">
+            <div class="ppc-head"><div><h3>Misty</h3><span>Domestic Tabby · Female · 3 years</span></div><span class="pill pill-amber">Monitor</span></div>
+            <div class="ppc-grid">
+              <div><label>Weight</label><strong>4.5 kg</strong></div>
+              <div><label>Microchip</label><strong>985113…</strong></div>
+              <div><label>Diet</label><strong>Wet + Dry</strong></div>
+              <div><label>Last Visit</label><strong>Aug 22</strong></div>
+            </div>
+            <div class="ppc-vax">
+              <h4>Vaccination Status</h4>
+              <div class="vax-item"><span>Rabies</span><span class="pill pill-amber">Due Oct 18</span></div>
+              <div class="vax-item"><span>FVRCP</span><span class="pill pill-success">Up to date</span></div>
+              <div class="vax-item"><span>FeLV</span><span class="pill pill-success">Up to date</span></div>
+            </div>
+            <div class="ppc-actions"><a href="#" class="btn btn-primary">View Full Profile</a><a href="#" class="btn btn-ghost">Edit</a></div>
+          </div>
+        </div>
+
+        <!-- add new pet -->
+        <div class="pet-add-card">
+          <div class="pac-ic">＋</div>
+          <h3>Add a New Pet</h3>
+          <p>Register a new companion to start tracking their health.</p>
+          <button class="btn btn-coral" id="addPetBtn">Add Pet</button>
+        </div>
+      </div>
+
+      <!-- add pet modal -->
+      <div class="modal-overlay" id="addPetModal">
+        <div class="modal-box">
+          <button class="modal-close" id="addPetClose">&times;</button>
+          <h3>Register a New Pet</h3>
+          <p>Tell us about your new family member.</p>
+          <form class="modal-form" id="addPetForm">
+            <div class="mf-row"><div class="field"><label>Pet Name *</label><input type="text" required placeholder="Cookie"></div><div class="field"><label>Species *</label><select required><option value="">Select…</option><option>Dog</option><option>Cat</option><option>Rabbit</option><option>Bird</option><option>Other</option></select></div></div>
+            <div class="mf-row"><div class="field"><label>Breed</label><input type="text" placeholder="Golden Retriever"></div><div class="field"><label>Date of Birth</label><input type="date"></div></div>
+            <div class="mf-row"><div class="field"><label>Sex *</label><select required><option value="">Select…</option><option>Male</option><option>Female</option></select></div><div class="field"><label>Weight (kg)</label><input type="number" step="0.1" placeholder="12.5"></div></div>
+            <div class="field"><label>Notes</label><textarea rows="3" placeholder="Allergies, behaviour, anything we should know…"></textarea></div>
+            <button type="submit" class="btn btn-primary btn-block">Save Pet Profile</button>
+            <div class="form-ok" id="addPetOk">✓ Pet added successfully!</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== APPOINTMENTS MODULE ====== -->
+    <section class="module" id="mod-appointments">
+      <div class="mod-head"><h2>Appointments</h2><p>Book, reschedule, or cancel your pet's visits.</p></div>
+
+      <div class="ap-tabs" id="apTabs">
+        <button class="ap-tab active" data-tab="upcoming">Upcoming (3)</button>
+        <button class="ap-tab" data-tab="past">Past Visits</button>
+        <button class="ap-tab" data-tab="book">Book New</button>
+      </div>
+
+      <div class="ap-content">
+        <div class="ap-pane active" data-pane="upcoming">
+          <div class="ap-list">
+            <div class="ap-card"><div class="ap-date"><span>12</span><small>Oct</small></div><div class="ap-info"><h4>Bruno — Annual Checkup</h4><p>Dr. Maya Hartley · Monday 10:30 AM</p></div><span class="pill pill-teal">Confirmed</span><div class="ap-actions"><button class="ap-btn">Reschedule</button><button class="ap-btn danger">Cancel</button></div></div>
+            <div class="ap-card"><div class="ap-date"><span>18</span><small>Oct</small></div><div class="ap-info"><h4>Misty — Vaccination Booster</h4><p>Dr. Liam Chen · Saturday 2:00 PM</p></div><span class="pill pill-amber">Pending</span><div class="ap-actions"><button class="ap-btn">Confirm</button><button class="ap-btn danger">Cancel</button></div></div>
+            <div class="ap-card"><div class="ap-date"><span>03</span><small>Nov</small></div><div class="ap-info"><h4>Bruno — Dental Cleaning</h4><p>Dr. Liam Chen · Monday 9:00 AM</p></div><span class="pill pill-teal">Confirmed</span><div class="ap-actions"><button class="ap-btn">Reschedule</button><button class="ap-btn danger">Cancel</button></div></div>
+          </div>
+        </div>
+        <div class="ap-pane" data-pane="past">
+          <table class="dash-table">
+            <thead><tr><th>Pet</th><th>Service</th><th>Date</th><th>Vet</th><th>Outcome</th></tr></thead>
+            <tbody>
+              <tr><td>Bruno</td><td>Wellness Exam</td><td>Sep 14, 2026</td><td>Dr. Hartley</td><td><span class="pill pill-success">Healthy</span></td></tr>
+              <tr><td>Misty</td><td>Spay Surgery</td><td>Aug 22, 2026</td><td>Dr. Hartley</td><td><span class="pill pill-success">Recovered</span></td></tr>
+              <tr><td>Bruno</td><td>Vaccination</td><td>Jul 03, 2026</td><td>Dr. Chen</td><td><span class="pill pill-success">Complete</span></td></tr>
+              <tr><td>Misty</td><td>Dental Check</td><td>Jun 15, 2026</td><td>Dr. Chen</td><td><span class="pill pill-amber">Follow-up</span></td></tr>
+              <tr><td>Bruno</td><td>Ear Infection</td><td>May 20, 2026</td><td>Dr. Fischer</td><td><span class="pill pill-success">Cleared</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ap-pane" data-pane="book">
+          <div class="book-form-wrap">
+            <div class="bfp-left">
+              <h3>Book a New Appointment</h3>
+              <form class="book-form" id="bookForm">
+                <div class="field"><label>Select Pet *</label><select required><option value="">Choose a pet…</option><option>Bruno</option><option>Misty</option></select></div>
+                <div class="field"><label>Service Needed *</label><select required><option value="">Choose a service…</option><option>Wellness Exam</option><option>Vaccination</option><option>Dental Cleaning</option><option>Surgery Consult</option><option>Nutrition</option><option>Other</option></select></div>
+                <div class="mf-row"><div class="field"><label>Preferred Date *</label><input type="date" required></div><div class="field"><label>Preferred Time</label><select><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div></div>
+                <div class="field"><label>Notes</label><textarea rows="3" placeholder="Describe symptoms or concerns…"></textarea></div>
+                <button type="submit" class="btn btn-coral btn-block">Request Appointment</button>
+                <div class="form-ok" id="bookOk">✓ Request sent! We'll confirm within the hour.</div>
+              </form>
+            </div>
+            <div class="bfp-right">
+              <h4>Available Vets</h4>
+              <div class="vet-mini"><img src="https://images.pexels.com/photos/6235231/pexels-photo-6235231.jpeg?auto=compress&cs=tinysrgb&h=80&w=80" alt=""><div><strong>Dr. Maya Hartley</strong><span>Surgery · General</span></div></div>
+              <div class="vet-mini"><img src="https://images.pexels.com/photos/6816859/pexels-photo-6816859.jpeg?auto=compress&cs=tinysrgb&h=80&w=80" alt=""><div><strong>Dr. Liam Chen</strong><span>Dental · Preventive</span></div></div>
+              <div class="vet-mini"><img src="https://images.pexels.com/photos/6235114/pexels-photo-6235114.jpeg?auto=compress&cs=tinysrgb&h=80&w=80" alt=""><div><strong>Dr. Noah Fischer</strong><span>Emergency</span></div></div>
+              <div class="vet-mini"><img src="https://images.pexels.com/photos/6235650/pexels-photo-6235650.jpeg?auto=compress&cs=tinysrgb&h=80&w=80" alt=""><div><strong>Dr. Aisha Bello</strong><span>Exotics · Avian</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== MEDICAL RECORDS MODULE ====== -->
+    <section class="module" id="mod-records">
+      <div class="mod-head"><h2>Medical Records</h2><p>Complete health history for all your pets.</p></div>
+
+      <div class="records-pet-tabs" id="recPetTabs">
+        <button class="rpt active" data-pet="bruno">🐕 Bruno</button>
+        <button class="rpt" data-pet="misty">🐱 Misty</button>
+      </div>
+
+      <div class="grid-1-2">
+        <div class="dash-card">
+          <div class="mod-section-title">Vitals</div>
+          <div class="vitals-list" id="vitalsBruno">
+            <div class="vital"><span>Weight</span><strong>28 kg</strong><em class="up">+0.5</em></div>
+            <div class="vital"><span>Temperature</span><strong>38.5°C</strong><em>Normal</em></div>
+            <div class="vital"><span>Heart Rate</span><strong>80 bpm</strong><em>Normal</em></div>
+            <div class="vital"><span>Body Score</span><strong>5/9</strong><em>Ideal</em></div>
+          </div>
+          <div class="vitals-list" id="vitalsMisty" style="display:none">
+            <div class="vital"><span>Weight</span><strong>4.5 kg</strong><em class="up">+0.3</em></div>
+            <div class="vital"><span>Temperature</span><strong>38.8°C</strong><em>Normal</em></div>
+            <div class="vital"><span>Heart Rate</span><strong>160 bpm</strong><em>Normal</em></div>
+            <div class="vital"><span>Body Score</span><strong>6/9</strong><em class="down">Monitor</em></div>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="mod-section-title">Visit History &amp; Notes</div>
+          <div class="timeline-mini">
+            <div class="tm-item"><div class="tm-dot teal"></div><div class="tm-card"><span>Sep 14, 2026 · Dr. Hartley</span><h4>Annual Wellness Exam</h4><p>All systems healthy. Weight stable. Recommended dental cleaning in Nov.</p></div></div>
+            <div class="tm-item"><div class="tm-dot amber"></div><div class="tm-card"><span>Jul 03, 2026 · Dr. Chen</span><h4>Vaccination — DHPP Booster</h4><p>No adverse reaction. Next booster in 12 months.</p></div></div>
+            <div class="tm-item"><div class="tm-dot coral"></div><div class="tm-card"><span>May 20, 2026 · Dr. Fischer</span><h4>Ear Infection Treatment</h4><p>Otitis externa in left ear. Prescribed eardrops for 10 days. Fully resolved.</p></div></div>
+            <div class="tm-item"><div class="tm-dot teal"></div><div class="tm-card"><span>Mar 11, 2026 · Dr. Hartley</span><h4>Neuter Surgery</h4><p>Routine castration. Recovery uneventful. Sutures dissolved normally.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card" style="margin-top:20px">
+        <div class="mod-section-title">Documents &amp; Test Results <a href="#">Download all ↓</a></div>
+        <div class="doc-list">
+          <div class="doc-item"><span class="di-ic">📄</span><div><strong>Blood Panel Results</strong><span>Sep 14, 2026 · PDF</span></div><a href="#">View</a></div>
+          <div class="doc-item"><span class="di-ic">🦷</span><div><strong>Dental X-Ray</strong><span>Jun 15, 2026 · PDF</span></div><a href="#">View</a></div>
+          <div class="doc-item"><span class="di-ic">💉</span><div><strong>Vaccination Certificate</strong><span>Jul 03, 2026 · PDF</span></div><a href="#">View</a></div>
+          <div class="doc-item"><span class="di-ic">📋</span><div><strong>Surgery Report</strong><span>Mar 11, 2026 · PDF</span></div><a href="#">View</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== PRESCRIPTIONS MODULE ====== -->
+    <section class="module" id="mod-prescriptions">
+      <div class="mod-head"><h2>Prescriptions</h2><p>Active medications, refill history, and dosage tracking.</p></div>
+
+      <div class="stat-row" style="grid-template-columns:repeat(3,1fr)">
+        <div class="stat-card coral"><div class="stat-ic">💊</div><div><div class="stat-val" data-count="1">0</div><div class="stat-lbl">Active Rx</div></div></div>
+        <div class="stat-card teal"><div class="stat-ic">🔄</div><div><div class="stat-val" data-count="4">0</div><div class="stat-lbl">Total Refills</div></div></div>
+        <div class="stat-card amber"><div class="stat-ic">⏰</div><div><div class="stat-val" data-count="2">0</div><div class="stat-lbl">Due This Month</div></div></div>
+      </div>
+
+      <div class="dash-card">
+        <div class="mod-section-title">Active Prescriptions</div>
+        <div class="rx-list">
+          <div class="rx-card">
+            <div class="rx-head"><div class="rx-ic coral">💊</div><div><h4>Amoxicillin</h4><span>Misty · Dr. Chen · Issued Sep 15</span></div><span class="pill pill-teal">Active</span></div>
+            <div class="rx-grid">
+              <div><label>Dosage</label><strong>50mg, twice daily</strong></div>
+              <div><label>Duration</label><strong>10 days</strong></div>
+              <div><label>Remaining</label><strong>6 days</strong></div>
+              <div><label>Refills</label><strong>0 left</strong></div>
+            </div>
+            <div class="rx-progress"><div class="progress"><div class="progress-fill coral" data-width="40%"></div></div><span>40% remaining</span></div>
+            <div class="rx-actions"><button class="btn btn-primary">Request Refill</button><button class="btn btn-ghost">View Label</button></div>
+          </div>
+          <div class="rx-card">
+            <div class="rx-head"><div class="rx-ic teal">🧴</div><div><h4>Flea &amp; Tick Treatment</h4><span>Bruno · Dr. Hartley · Recurring</span></div><span class="pill pill-teal">Active</span></div>
+            <div class="rx-grid">
+              <div><label>Dosage</label><strong>1 dose monthly</strong></div>
+              <div><label>Type</label><strong>Topical</strong></div>
+              <div><label>Remaining</label><strong>2 doses</strong></div>
+              <div><label>Next Due</label><strong>Oct 20</strong></div>
+            </div>
+            <div class="rx-progress"><div class="progress"><div class="progress-fill teal" data-width="66%"></div></div><span>2 of 3 doses left</span></div>
+            <div class="rx-actions"><button class="btn btn-primary">Reorder</button><button class="btn btn-ghost">View Label</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card" style="margin-top:20px">
+        <div class="mod-section-title">Past Prescriptions</div>
+        <table class="dash-table">
+          <thead><tr><th>Medication</th><th>Pet</th><th>Prescribed</th><th>Vet</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Eardrops (Otomax)</td><td>Bruno</td><td>May 20, 2026</td><td>Dr. Fischer</td><td><span class="pill pill-neutral">Completed</span></td></tr>
+            <tr><td>Pain Relief (Meloxicam)</td><td>Bruno</td><td>Mar 11, 2026</td><td>Dr. Hartley</td><td><span class="pill pill-neutral">Completed</span></td></tr>
+            <tr><td>Antibiotic (Clavamox)</td><td>Misty</td><td>Aug 22, 2026</td><td>Dr. Hartley</td><td><span class="pill pill-neutral">Completed</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ====== INVOICES MODULE ====== -->
+    <section class="module" id="mod-invoices">
+      <div class="mod-head"><h2>Billing &amp; Invoices</h2><p>View invoices, payment history, and outstanding balances.</p></div>
+
+      <div class="stat-row">
+        <div class="stat-card success"><div class="stat-ic">✓</div><div><div class="stat-val">$<span data-count="2840">0</span></div><div class="stat-lbl">Total Paid (2026)</div></div></div>
+        <div class="stat-card coral"><div class="stat-ic">⏳</div><div><div class="stat-val">$<span data-count="180">0</span></div><div class="stat-lbl">Outstanding</div></div></div>
+        <div class="stat-card teal"><div class="stat-ic">📄</div><div><div class="stat-val" data-count="8">0</div><div class="stat-lbl">Total Invoices</div></div></div>
+        <div class="stat-card amber"><div class="stat-ic">💳</div><div><div class="stat-val" data-count="2">0</div><div class="stat-lbl">Auto-Pay Plans</div></div></div>
+      </div>
+
+      <div class="dash-card">
+        <div class="mod-section-title">Invoice History <a href="#">Download all ↓</a></div>
+        <table class="dash-table">
+          <thead><tr><th>Invoice #</th><th>Date</th><th>Description</th><th>Amount</th><th>Status</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>INV-2026-008</td><td>Sep 14</td><td>Annual Wellness Exam + Bloodwork</td><td>$145</td><td><span class="pill pill-success">Paid</span></td><td><a href="#" class="tb-link">PDF</a></td></tr>
+            <tr><td>INV-2026-007</td><td>Aug 22</td><td>Spay Surgery (Misty)</td><td>$420</td><td><span class="pill pill-success">Paid</span></td><td><a href="#" class="tb-link">PDF</a></td></tr>
+            <tr><td>INV-2026-006</td><td>Jul 03</td><td>Vaccination + Consultation</td><td>$85</td><td><span class="pill pill-success">Paid</span></td><td><a href="#" class="tb-link">PDF</a></td></tr>
+            <tr><td>INV-2026-005</td><td>Jun 15</td><td>Dental Check + Scaling</td><td>$180</td><td><span class="pill pill-coral">Due Oct 15</span></td><td><a href="#" class="tb-link">Pay</a></td></tr>
+            <tr><td>INV-2026-004</td><td>May 20</td><td>Ear Infection Treatment</td><td>$95</td><td><span class="pill pill-success">Paid</span></td><td><a href="#" class="tb-link">PDF</a></td></tr>
+            <tr><td>INV-2026-003</td><td>Mar 11</td><td>Neuter Surgery (Bruno)</td><td>$380</td><td><span class="pill pill-success">Paid</span></td><td><a href="#" class="tb-link">PDF</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2" style="margin-top:20px">
+        <div class="dash-card">
+          <div class="mod-section-title">Payment Methods</div>
+          <div class="pm-card"><div class="pm-ic">💳</div><div><strong>Visa ending 4242</strong><span>Expires 08/28 · Default</span></div><span class="pill pill-teal">Active</span></div>
+          <div class="pm-card"><div class="pm-ic">🏦</div><div><strong>Bank Transfer</strong><span>Chase ····7782</span></div><span class="pill pill-neutral">Backup</span></div>
+          <button class="btn btn-ghost btn-block" style="margin-top:14px">+ Add Payment Method</button>
+        </div>
+        <div class="dash-card">
+          <div class="mod-section-title">Spending Breakdown (2026)</div>
+          <div class="spend-bar"><div class="sb-label"><span>🏥 Surgery</span><strong>$800</strong></div><div class="progress"><div class="progress-fill teal" data-width="70%"></div></div></div>
+          <div class="spend-bar"><div class="sb-label"><span>🦷 Dental</span><strong>$180</strong></div><div class="progress"><div class="progress-fill coral" data-width="20%"></div></div></div>
+          <div class="spend-bar"><div class="sb-label"><span>💉 Vaccinations</span><strong>$140</strong></div><div class="progress"><div class="progress-fill amber" data-width="15%"></div></div></div>
+          <div class="spend-bar"><div class="sb-label"><span>📋 Exams &amp; Labs</span><strong>$220</strong></div><div class="progress"><div class="progress-fill teal" data-width="25%"></div></div></div>
+          <div class="spend-bar"><div class="sb-label"><span>💊 Prescriptions</span><strong>$150</strong></div><div class="progress"><div class="progress-fill coral" data-width="18%"></div></div></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ============ LOGOUT MODAL ============ -->
+<div class="logout-modal" id="logoutModal">
+  <div class="logout-box">
+    <div class="lb-ic">🐾</div>
+    <h3>Leaving so soon?</h3>
+    <p>You'll need to sign in again to access your pet records. Are you sure you want to log out?</p>
+    <div class="lb-btns">
+      <button class="btn btn-outline" id="logoutCancel">Stay</button>
+      <button class="btn btn-coral" id="logoutConfirm">Log Out</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/dashboard.js"></script>
+<script src="js/owner-dash.js"></script>
+</body>
+</html>

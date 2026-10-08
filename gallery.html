@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Stackly Veterinary Clinic</title>
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="ph-bg"><img src="https://images.pexels.com/photos/20680840/pexels-photo-20680840.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Puppies"></div>
+  <div class="ph-overlay"></div>
+  <div class="container ph-content reveal">
+    <span class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg> Gallery</span>
+    <h1>Smiles, snouts <span class="hl">&amp; success stories</span></h1>
+    <p>A peek into daily life at the clinic — happy patients, happy teams, and the occasional nap on the job.</p>
+  </div>
+  <div class="ph-wave"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,50 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="var(--cream)"/></svg></div>
+</section>
+
+<!-- ============ GALLERY FILTER ============ -->
+<section class="gal-filter">
+  <div class="container">
+    <div class="filter-tabs reveal" id="galTabs">
+      <button class="gtab active" data-filter="all">All</button>
+      <button class="gtab" data-filter="dogs">Dogs</button>
+      <button class="gtab" data-filter="cats">Cats</button>
+      <button class="gtab" data-filter="small">Small Pets</button>
+      <button class="gtab" data-filter="birds">Birds</button>
+      <button class="gtab" data-filter="clinic">Clinic</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MASONRY GALLERY ============ -->
+<section class="gallery">
+  <div class="container masonry" id="masonry">
+    <figure class="gal-item reveal" data-cat="dogs"><img src="https://images.pexels.com/photos/6235114/pexels-photo-6235114.jpeg?auto=compress&cs=tinysrgb&h=500&w=500" alt="German Shepherd checkup"><figcaption>Checkup day<span>Max · German Shepherd</span></figcaption></figure>
+    <figure class="gal-item reveal delay-1" data-cat="cats"><img src="https://images.pexels.com/photos/6816851/pexels-photo-6816851.jpeg?auto=compress&cs=tinysrgb&h=400&w=500" alt="White cat exam"><figcaption>Gentle exam<span>Snowball · Cat</span></figcaption></figure>
+    <figure class="gal-item reveal delay-2" data-cat="dogs"><img src="https://images.pexels.com/photos/6235017/pexels-photo-6235017.jpeg?auto=compress&cs=tinysrgb&h=400&w=500" alt="Pomeranian"><figcaption>Good boy!<span>Mochi · Pomeranian</span></figcaption></figure>
+    <figure class="gal-item reveal" data-cat="birds"><img src="https://images.pexels.com/photos/19609975/pexels-photo-19609975.jpeg?auto=compress&cs=tinysrgb&h=500&w=500" alt="Macaws"><figcaption>Colourful visitors<span>Macaws · Birds</span></figcaption></figure>
+    <figure class="gal-item reveal delay-1" data-cat="small"><img src="https://images.pexels.com/photos/36852517/pexels-photo-36852517.jpeg?auto=compress&cs=tinysrgb&h=400&w=500" alt="Rabbits"><figcaption>Bunny buddies<span>Rabbits · Small Pet</span></figcaption></figure>
+    <figure class="gal-item reveal delay-2" data-cat="dogs"><img src="https://images.pexels.com/photos/10940343/pexels-photo-10940343.jpeg?auto=compress&cs=tinysrgb&h=500&w=500" alt="Dogs playing"><figcaption>Post-visit zoomies<span>River dogs</span></figcaption></figure>
+    <figure class="gal-item reveal" data-cat="cats"><img src="https://images.pexels.com/photos/6130971/pexels-photo-6130971.jpeg?auto=compress&cs=tinysrgb&h=400&w=500" alt="Tabby cat"><figcaption>Calm &amp; cozy<span>Luna · Tabby</span></figcaption></figure>
+    <figure class="gal-item reveal delay-1" data-cat="clinic"><img src="https://images.pexels.com/photos/12104186/pexels-photo-12104186.jpeg?auto=compress&cs=tinysrgb&h=500&w=500" alt="Operating room"><figcaption>Our theatre<span>Surgical suite</span></figcaption></figure>
+    <figure class="gal-item reveal delay-2" data-cat="small"><img src="https://images.pexels.com/photos/6846043/pexels-photo-6846043.jpeg?auto=compress&cs=tinysrgb&h=400&w=500" alt="Bunnies"><figcaption>Snuggle time<span>Bunnies · Small Pet</span></figcaption></figure>
+    <figure class="gal-item reveal" data-cat="dogs"><img src="https://images.pexels.com/photos/33749204/pexels-photo-33749204.jpeg?auto=compress&cs=tinysrgb&h=400&w=500" alt="Labradors"><figcaption>Best friends<span>Two Labs</span></figcaption></figure>
+    <figure class="gal-item reveal delay-1" data-cat="cats"><img src="https://images.pexels.com/photos/6816862/pexels-photo-6816862.jpeg?auto=compress&cs=tinysrgb&h=500&w=500" alt="Cat paw bandage"><figcaption>Recovery paw<span>Post-surgery care</span></figcaption></figure>
+    <figure class="gal-item reveal delay-2" data-cat="clinic"><img src="https://images.pexels.com/photos/11722768/pexels-photo-11722768.jpeg?auto=compress&cs=tinysrgb&h=400&w=500" alt="Clinic room"><figcaption>Ready for you<span>Exam room</span></figcaption></figure>
+    <figure class="gal-item reveal" data-cat="birds"><img src="https://images.pexels.com/photos/13590421/pexels-photo-13590421.jpeg?auto=compress&cs=tinysrgb&h=400&w=500" alt="Parrot"><figcaption>Curious visitor<span>Amazon parrot</span></figcaption></figure>
+    <figure class="gal-item reveal delay-1" data-cat="dogs"><img src="https://images.pexels.com/photos/11004081/pexels-photo-11004081.jpeg?auto=compress&cs=tinysrgb&h=500&w=500" alt="Dogs running"><figcaption>Freedom!<span>Happy patients</span></figcaption></figure>
+    <figure class="gal-item reveal delay-1" data-cat="small"><img src="https://images.pexels.com/photos/36852517/pexels-photo-36852517.jpeg?auto=compress&cs=tinysrgb&h=400&w=500" alt="Rabbits"><figcaption>Bunny buddies<span>Rabbits · Small Pet</span></figcaption></figure>
+    <figure class="gal-item reveal delay-2" data-cat="dogs"><img src="https://images.pexels.com/photos/10940343/pexels-photo-10940343.jpeg?auto=compress&cs=tinysrgb&h=500&w=500" alt="Dogs playing"><figcaption>Post-visit zoomies<span>River dogs</span></figcaption></figure>
+    
+  </div>
+</section>
+
+<!-- ============ INSIDE THE CLINIC ============ -->
+<section class="inside-clinic">
+  <div class="container">
+    <div class="ic-grid">
+
+      <div class="ic-content reveal left">
+        <span class="eyebrow">Behind the scenes</span>
+
+        <h2 class="section-title">
+          More than a clinic.
+          <span class="hl">A place to feel at home.</span>
+        </h2>
+
+        <p>
+          From quiet consultation rooms to our fully equipped surgical suite,
+          every corner of Stackly is designed around comfort,
+          safety, and exceptional veterinary care.
+        </p>
+
+        <div class="ic-points">
+          <div class="ic-point">
+            <span class="ic-icon">✦</span>
+            <div>
+              <strong>Calm environments</strong>
+              <span>Designed to reduce stress and anxiety.</span>
+            </div>
+          </div>
+
+          <div class="ic-point">
+            <span class="ic-icon">✦</span>
+            <div>
+              <strong>Modern equipment</strong>
+              <span>Advanced tools for accurate diagnosis.</span>
+            </div>
+          </div>
+
+          <div class="ic-point">
+            <span class="ic-icon">✦</span>
+            <div>
+              <strong>Compassionate team</strong>
+              <span>Gentle hands at every step of care.</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="about.html" class="btn btn-primary">
+          Explore Our Clinic
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="ic-visual reveal right">
+
+        <div class="ic-main">
+          <img
+            src="https://images.pexels.com/photos/6234600/pexels-photo-6234600.jpeg?auto=compress&cs=tinysrgb&w=1000"
+            alt="Veterinarian caring for a dog">
+        </div>
+
+        <div class="ic-small">
+          <img
+            src="https://images.pexels.com/photos/7469217/pexels-photo-7469217.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Veterinary examination">
+        </div>
+
+        <div class="ic-badge">
+          <strong>16+</strong>
+          <span>years of<br>trusted care</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS STRIP ============ -->
+<section class="gal-stats">
+  <div class="container gs-row">
+    <div class="gs reveal"><strong data-count="15000">0</strong><span>patients photographed</span></div>
+    <div class="gs reveal delay-1"><strong data-count="800">0</strong><span>recovery stories</span></div>
+    <div class="gs reveal delay-2"><strong data-count="24">0</strong><span>hours a day caring</span></div>
+  </div>
+</section>
+
+
+<!-- ============ BEFORE & AFTER SHOWCASE (teal cards) ============ -->
+<section class="showcase">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow coral">Recovery stories</span>
+      <h2 class="section-title">Before &amp; <span class="hl">after</span></h2>
+      <p class="section-sub">Real recoveries, real faces. These pets are now thriving.</p>
+    </div>
+    <div class="ba-grid">
+      <article class="ba-card reveal">
+        <div class="ba-pair"><div class="ba-img ba-before"><img src="images/pet8.webp" alt="Before"><span class="ba-tag">Before</span></div><div class="ba-img ba-after"><img src="https://images.pexels.com/photos/6235017/pexels-photo-6235017.jpeg?auto=compress&cs=tinysrgb&h=350&w=400" alt="After"><span class="ba-tag after">After</span></div></div>
+        <div class="ba-body"><h4>Mochi's Dental Recovery</h4><p>3 weeks after a full dental cleaning, Mochi is back to bright-eyed and bushy-tailed.</p></div>
+      </article>
+      <article class="ba-card reveal delay-1">
+        <div class="ba-pair"><div class="ba-img ba-before"><img src="images/pet9.webp" alt="Before"><span class="ba-tag">Before</span></div><div class="ba-img ba-after"><img src="https://images.pexels.com/photos/6816851/pexels-photo-6816851.jpeg?auto=compress&cs=tinysrgb&h=350&w=400" alt="After"><span class="ba-tag after">After</span></div></div>
+        <div class="ba-body"><h4>Snowball's Paw Surgery</h4><p>From bandaged paw to playful prowler in just 10 days of follow-up care.</p></div>
+      </article>
+      <article class="ba-card reveal delay-2">
+        <div class="ba-pair"><div class="ba-img ba-before"><img src="images/pet16.avif" alt="Before"><span class="ba-tag">Before</span></div><div class="ba-img ba-after"><img src="https://images.pexels.com/photos/30577785/pexels-photo-30577785.jpeg?auto=compress&cs=tinysrgb&h=350&w=400" alt="After"><span class="ba-tag after">After</span></div></div>
+        <div class="ba-body"><h4>Kitten's First Checkup</h4><p>A nervous first visit became a confident, healthy little explorer.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOMENTS THAT MATTER ============ -->
+<section class="moments">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <span class="eyebrow coral">Little moments</span>
+      <h2 class="section-title">
+        Moments that <span class="hl">matter</span>
+      </h2>
+      <p class="section-sub">
+        Behind every photograph is a moment of trust, comfort, courage,
+        and connection.
+      </p>
+    </div>
+
+    <div class="moments-grid">
+
+      <article class="moment-card moment-large reveal">
+        <img
+          src="images/doctor11.webp"
+          alt="Veterinarian with dog">
+        <div class="moment-overlay">
+          <span>01</span>
+          <h3>A gentle first hello</h3>
+          <p>Building trust before the examination begins.</p>
+        </div>
+      </article>
+
+      <article class="moment-card reveal delay-1">
+        <img
+          src="images/pet14.webp"
+          alt="Veterinary team caring for pet">
+        <div class="moment-overlay">
+          <span>02</span>
+          <h3>Teamwork matters</h3>
+          <p>Every recovery is a team effort.</p>
+        </div>
+      </article>
+
+      <article class="moment-card reveal delay-2">
+        <img
+          src="images/doctor8.webp"
+          alt="Cat receiving care">
+        <div class="moment-overlay">
+          <span>03</span>
+          <h3>Quiet comfort</h3>
+          <p>Sometimes the smallest gestures mean the most.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY PROMISE ============ -->
+<section class="gallery-promise">
+  <div class="gp-bg">
+    <img
+      src="images/pet17.avif"
+      alt="Veterinarian caring for a pet">
+  </div>
+
+  <div class="gp-overlay"></div>
+
+  <div class="container gp-inner reveal">
+
+    <span class="eyebrow gp-eyebrow">
+      Our promise
+    </span>
+
+    <h2>
+      Every pet deserves
+      <span>a moment worth remembering.</span>
+    </h2>
+
+    <p>
+      We capture the little victories, the brave moments, the first
+      visits, the happy returns, and everything in between.
+    </p>
+
+    <div class="gp-signature">
+      <span></span>
+      <strong>Stackly</strong>
+      <small>Compassion in every frame</small>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ VIDEO-CALLOUT ============ -->
+<section class="vid-callout">
+  <div class="container vc-inner reveal">
+    <div class="vc-play">▶</div>
+    <h2>A day in the life at Stackly</h2>
+    <p>Press play for a 60-second tour of our clinic, team, and very happy patients.</p>
+  </div>
+</section>
+
+<!-- ============ PET PARENT FAVORITES ============ -->
+<section class="pet-favorites">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <span class="eyebrow">From our pet parents</span>
+      <h2 class="section-title">
+        The moments they <span class="hl">remember most</span>
+      </h2>
+    </div>
+
+    <div class="favorite-grid">
+
+      <article class="favorite-card reveal">
+        <div class="favorite-top">
+          <div class="favorite-avatar">A</div>
+          <div>
+            <strong>Anna &amp; Max</strong>
+            <span>German Shepherd</span>
+          </div>
+          <b>★★★★★</b>
+        </div>
+
+        <p>
+          “The first photo after Max's surgery brought tears to our eyes.
+          He looked so happy and comfortable.”
+        </p>
+
+        <span class="favorite-tag">Recovery story</span>
+      </article>
+
+      <article class="favorite-card featured reveal delay-1">
+        <div class="favorite-top">
+          <div class="favorite-avatar">J</div>
+          <div>
+            <strong>James &amp; Luna</strong>
+            <span>Tabby Cat</span>
+          </div>
+          <b>★★★★★</b>
+        </div>
+
+        <p>
+          “Luna normally hates the vet, but the team made her feel safe.
+          This photo says everything.”
+        </p>
+
+        <span class="favorite-tag">Happy visit</span>
+      </article>
+
+      <article class="favorite-card reveal delay-2">
+        <div class="favorite-top">
+          <div class="favorite-avatar">S</div>
+          <div>
+            <strong>Sophie &amp; Mochi</strong>
+            <span>Pomeranian</span>
+          </div>
+          <b>★★★★★</b>
+        </div>
+
+        <p>
+          “We love looking back at these little moments. They make every
+          visit feel special.”
+        </p>
+
+        <span class="favorite-tag">Pet parent moment</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-banner">
+  <div class="container cta-inner reveal">
+    <div class="cta-text"><h2>Want your pet featured?</h2><p>Tag us @pawsandclaws — we repost our favourites weekly.</p></div>
+    <a href="error.html" class="btn btn-coral">Share Your Pet
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev">‹</button>
+  <img src="" alt="" id="lbImg">
+  <button class="lb-nav lb-next" id="lbNext">›</button>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<script src="js/shared.js"></script>
+<script src="js/gallery.js"></script>
+</body>
+</html>

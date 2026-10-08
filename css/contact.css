@@ -1,0 +1,103 @@
+/* ============================================================
+   CONTACT PAGE — unique pattern: split form/sidebar + map pin + FAQ grid
+   Card color: coral themed (distinct on this page)
+   ============================================================ */
+
+.page-hero { position: relative; padding: 150px 0 110px; overflow: hidden; min-height: 50vh; display: flex; align-items: center; }
+.ph-bg { position: absolute; inset: 0; z-index: 0; }
+.ph-bg img { width: 100%; height: 100%; object-fit: cover; }
+.ph-overlay { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(189,52,32,.88), rgba(249,87,56,.6)); }
+.ph-content { position: relative; z-index: 2; max-width: 700px; }
+.ph-content h1 { color: #fff; font-size: clamp(2.2rem,5vw,3.6rem); font-weight: 700; margin: 16px 0; }
+.ph-content h1 .hl { color: var(--amber-400); }
+.ph-content p { color: rgba(255,255,255,.92); font-size: 1.1rem; max-width: 560px; }
+.ph-content .eyebrow { background: rgba(255,255,255,.18); color: #fff; border-color: rgba(255,255,255,.3); }
+.ph-wave { position: absolute; bottom: -2px; left: 0; width: 100%; z-index: 1; }
+.ph-wave svg { width: 100%; height: 70px; display: block; }
+
+/* ---- QUICK INFO (coral cards) ---- */
+.quick-info { padding: 80px 0 40px; background: var(--cream); }
+.qi-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; }
+.qi-card {
+  background: linear-gradient(165deg, #fff, var(--coral-50));
+  border: 2px solid var(--coral-200); border-radius: var(--radius-lg);
+  padding: 30px 26px; transition: var(--transition); text-align: center;
+  border-top: 6px solid var(--coral-500);
+}
+.qi-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+.qi-ic { font-size: 2.4rem; margin-bottom: 12px; }
+.qi-card h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--ink-900); }
+.qi-card p { color: var(--ink-700); font-size: .92rem; margin-bottom: 12px; line-height: 1.5; }
+.qi-card a { color: var(--coral-600); font-weight: 700; font-size: .88rem; }
+
+/* ---- BOOKING ---- */
+.booking { padding: 60px 0 100px; background: var(--cream); }
+.booking-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 50px; align-items: start; }
+.booking-form-wrap .eyebrow { margin-bottom: 10px; }
+.booking-form { margin-top: 28px; background: #fff; border: 2px solid var(--coral-200); border-radius: var(--radius-lg); padding: 34px; box-shadow: var(--shadow); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field { margin-bottom: 18px; }
+.field label { display: block; font-weight: 600; font-size: .88rem; color: var(--ink-800); margin-bottom: 7px; }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 13px 16px; border-radius: 12px; border: 2px solid var(--sand-200);
+  font-family: var(--font-body); font-size: .95rem; color: var(--ink-800); background: var(--sand-50);
+  transition: var(--transition);
+}
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--coral-400); background: #fff; box-shadow: 0 0 0 4px var(--coral-100); }
+.field textarea { resize: vertical; }
+.form-success { display: none; margin-top: 18px; background: var(--teal-50); border: 2px solid var(--teal-300); color: var(--teal-800); padding: 16px 20px; border-radius: 12px; font-weight: 600; }
+.form-success.show { display: block; animation: popIn .4s; }
+@keyframes popIn { from { transform: scale(.9); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* booking sidebar */
+.booking-side { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 100px; }
+.bs-card { background: linear-gradient(160deg, var(--teal-600), var(--teal-800)); color: #fff; border-radius: var(--radius-lg); padding: 30px 28px; }
+.bs-card h3 { color: #fff; margin-bottom: 16px; }
+.bs-card ul li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: .95rem; }
+.bs-card ul li span { width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,.2); display: grid; place-items: center; font-size: .8rem; flex-shrink: 0; color: var(--amber-400); }
+.bs-emergency { background: #fff; border: 2px solid var(--coral-400); border-radius: var(--radius); padding: 20px; display: flex; align-items: flex-start; gap: 14px; }
+.bs-ec-pulse { width: 14px; height: 14px; border-radius: 50%; background: var(--coral-500); flex-shrink: 0; margin-top: 4px; animation: ecPulse 1.5s infinite; }
+@keyframes ecPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(249,87,56,.6); } 70% { box-shadow: 0 0 0 12px rgba(249,87,56,0); } }
+.bs-emergency strong { display: block; color: var(--coral-600); font-family: var(--font-display); }
+.bs-emergency span { font-size: .88rem; color: var(--ink-700); }
+.bs-img { border-radius: var(--radius); box-shadow: var(--shadow); }
+
+/* ---- MAP ---- */
+.map-section { padding: 80px 0; background: var(--sand-50); }
+.map-wrap { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); border: 3px solid #fff; max-width: var(--container); margin: 0 auto; height: 420px; }
+.map-wrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(.3); }
+.map-pin { position: absolute; top: 40%; left: 50%; transform: translate(-50%,-100%); }
+.mp-dot { width: 26px; height: 26px; border-radius: 50% 50% 50% 0; background: var(--coral-500); transform: rotate(-45deg); margin: 0 auto; box-shadow: 0 6px 16px rgba(249,87,56,.5); position: relative; }
+.mp-dot::after { content: '🐾'; position: absolute; inset: 0; transform: rotate(45deg); display: grid; place-items: center; font-size: .8rem; }
+.mp-card { background: #fff; border-radius: var(--radius); padding: 14px 18px; box-shadow: var(--shadow-lg); margin-top: 14px; text-align: center; min-width: 200px; }
+.mp-card strong { display: block; color: var(--ink-900); font-family: var(--font-display); }
+.mp-card span { font-size: .85rem; color: var(--ink-700); display: block; margin: 2px 0 8px; }
+.mp-card a { color: var(--coral-600); font-weight: 700; font-size: .85rem; }
+
+/* ---- CONTACT FAQ (coral cards) ---- */
+.contact-faq { padding: 100px 0; background: var(--cream); }
+.cf-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+.cf-card { background: linear-gradient(160deg, #fff, var(--coral-50)); border: 2px solid var(--coral-200); border-radius: var(--radius); padding: 26px 24px; transition: var(--transition); border-left: 5px solid var(--coral-500); }
+.cf-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.cf-card h4 { font-size: 1.08rem; margin-bottom: 8px; color: var(--ink-900); }
+.cf-card p { color: var(--ink-700); font-size: .92rem; }
+
+/* ---- NEWSLETTER ---- */
+.newsletter { padding: 80px 0; }
+.nl-inner { background: linear-gradient(120deg, var(--teal-600), var(--teal-800)); border-radius: var(--radius-xl); padding: 50px 56px; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; box-shadow: 0 24px 50px rgba(13,148,136,.3); }
+.nl-text h2 { color: #fff; font-size: clamp(1.5rem,3vw,2rem); }
+.nl-text p { color: var(--teal-100); }
+.nl-form { display: flex; gap: 10px; flex-wrap: wrap; }
+.nl-form input { padding: 14px 18px; border-radius: 100px; border: 2px solid rgba(255,255,255,.25); background: rgba(255,255,255,.1); color: #fff; font-family: var(--font-body); min-width: 240px; }
+.nl-form input::placeholder { color: rgba(255,255,255,.7); }
+.nl-ok { width: 100%; color: var(--amber-400); font-weight: 600; display: none; }
+.nl-ok.show { display: block; animation: popIn .4s; }
+
+/* ---- CTA (shared) ---- */
+.cta-banner { padding: 80px 0; }
+.cta-inner { background: linear-gradient(120deg, var(--coral-500), var(--coral-600)); border-radius: var(--radius-xl); padding: 50px 60px; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; box-shadow: 0 24px 50px rgba(249,87,56,.3); }
+.cta-inner .btn-coral { background: #fff; color: var(--coral-600); }
+.cta-inner .btn-coral:hover { background: var(--ink-900); color: #fff; }
+
+@media (max-width: 900px) { .qi-grid { grid-template-columns: 1fr 1fr; } .booking-grid { grid-template-columns: 1fr; } .booking-side { position: static; } .cf-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .qi-grid, .cf-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } .nl-inner { padding: 36px 24px; } .booking-form { padding: 24px 18px; } }
