@@ -72,9 +72,21 @@ function buildFooter() {
           </a>
           <p>Compassionate, modern veterinary care for every member of your family — furry, feathered, and floppy-eared.</p>
           <div class="footer-social">
-            <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l1-4h-4V3c0-1 .3-2 2-2h2V-2h-3C12 0 11 2 11 4v1H8v4h3v11h3z"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-            <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10 10 0 0 1-3 1.5A4 4 0 0 0 12 8v1A11 11 0 0 1 3 4s-4 9 5 13a12 12 0 0 1-7 2c9 5 20 0 20-13 0-.3 0-.5-.1-.8A7 7 0 0 0 23 3z"/></svg></a>
+            <a href="error.html" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="error.html" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="error.html" aria-label="X">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+
+            <a href="error.html" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
           </div>
         </div>
         <div class="footer-col">
@@ -90,18 +102,18 @@ function buildFooter() {
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="about.html">Home</a></li>
-            <li><a href="team.html">Services</a></li>
-            <li><a href="gallery.html">About</a></li>
-            <li><a href="contact.html">Gallery</a></li>
-            <li><a href="login.html">Contact</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col footer-news">
           <h4>Pet Newsletter</h4>
           <p style="color:#9fb5af;font-size:.93rem;margin-bottom:14px;">Seasonal pet health tips, delivered monthly.</p>
           <input type="email" placeholder="your@email.com">
-          <button class="btn btn-coral btn-block">Subscribe</button>
+          <button class="btn btn-coral btn-block" onclick="window.location.href = 'error.html'">Subscribe</button>
         </div>
       </div>
       <div class="footer-bottom">
